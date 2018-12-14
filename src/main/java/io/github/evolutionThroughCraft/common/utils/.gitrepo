@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/EvolutionThroughCraft/CommonUtilities.git
 	branch = master
-	commit = 6e4a66d8ad96eb9ec4c12f998dd2315f814fdd18
-	parent = 407e6e687afe2b9325a57e8e4dbbb81c335ba2d7
+	commit = ec8ecd306d38e829216a2c4864b6ff1c3c705999
+	parent = 240766b35537d35163c8a10436b2eddf7fec1b29
 	method = merge
 	cmdver = 0.4.0

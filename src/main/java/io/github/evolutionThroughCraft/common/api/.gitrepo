@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/EvolutionThroughCraft/Api.git
 	branch = master
-	commit = 2bdc74a36942c857c046937163b638d7738bca6e
-	parent = f9a1a76b4876b290adf0421de0316aa3cbd3dde3
+	commit = 41a6516775a403cc693d4679f171a0f1dd2f1e21
+	parent = a4831597948818a09a91f5650500b810f0d2c115
 	method = merge
 	cmdver = 0.4.0

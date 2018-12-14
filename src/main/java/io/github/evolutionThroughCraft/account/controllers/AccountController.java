@@ -5,7 +5,7 @@
  */
 package io.github.evolutionThroughCraft.account.controllers;
 
-import io.github.evolutionThroughCraft.account.models.Account;
+import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import javax.validation.Valid;
@@ -35,22 +35,22 @@ public class AccountController {
     private AccountRepository accountRepo;
     
     @GetMapping
-    public Page<Account> findAll(Pageable pageable) {
+    public Page<AccountEntity> findAll(Pageable pageable) {
         return accountRepo.findAll(pageable);
     }
     
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Account createAccount(@Valid @RequestBody Account account) {
+    public AccountEntity createAccount(@Valid @RequestBody AccountEntity account) {
         ResourceUtility.ensureResource(account);
         return accountRepo.save(account);
     }
     
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Account updateAccount(
+    public AccountEntity updateAccount(
                         @PathVariable("id") Long id, 
-                        @Valid @RequestBody Account account
+                        @Valid @RequestBody AccountEntity account
     ) {
         ResourceUtility.ensureResource(account);
         ResourceUtility.ensureResource(accountRepo.getOne(id));

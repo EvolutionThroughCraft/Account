@@ -5,13 +5,13 @@
  */
 package io.github.evolutionThroughCraft.account.repo;
 
-import io.github.evolutionThroughCraft.account.models.Account;
+import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author dwin
  */
-public interface AccountRepository extends JpaRepository<Account, Long> {
+public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
     
 }

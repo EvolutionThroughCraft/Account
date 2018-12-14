@@ -5,6 +5,7 @@
  */
 package io.github.evolutionThroughCraft.account.models;
 
+import io.github.evolutionThroughCraft.common.service.main.api.Account;
 import io.github.evolutionThroughCraft.service.common.models.Stamps;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "accounts")
 @Getter @Setter
-public class Account extends Stamps<String> {
+public class AccountEntity extends Stamps<String> implements Account {
     
     @Id @GeneratedValue(generator = "account_generator")
     @SequenceGenerator(

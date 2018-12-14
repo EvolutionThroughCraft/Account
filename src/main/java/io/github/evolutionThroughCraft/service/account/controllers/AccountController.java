@@ -7,7 +7,7 @@ package io.github.evolutionThroughCraft.service.account.controllers;
 
 import io.github.evolutionThroughCraft.service.account.models.Account;
 import io.github.evolutionThroughCraft.service.account.repo.AccountRepository;
-import io.github.evolutionThroughCraft.common.utils.subRepo.main.services.ResourceUtility;
+import io.github.evolutionThroughCraft.common.utils.main.services.ResourceUtility;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.evolutionThroughCraft.common.utils.main.services;
+package io.github.evolutionThroughCraft.common.service.main.utils;
 
 import io.github.evolutionThroughCraft.service.common.models.BadRequestException;
 import io.github.evolutionThroughCraft.service.common.models.ResourceNotFoundException;

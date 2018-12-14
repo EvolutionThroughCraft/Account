@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/EvolutionThroughCraft/CommonServicePackage.git
+	branch = master
+	commit = 2dd58a5a6ee8c2f612e5045eb999c64bd778cca1
+	parent = 7ef81e0b7489a02daa9e6b4d3f4f45ae43b14848
+	method = merge
+	cmdver = 0.4.0

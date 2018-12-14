@@ -1,4 +1,4 @@
-package io.github.evolutionThroughCraft.service.account;
+package io.github.evolutionThroughCraft.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

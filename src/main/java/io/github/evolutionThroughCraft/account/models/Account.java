@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.evolutionThroughCraft.service.account.models;
+package io.github.evolutionThroughCraft.account.models;
 
 import io.github.evolutionThroughCraft.service.common.models.Stamps;
 import javax.persistence.Column;

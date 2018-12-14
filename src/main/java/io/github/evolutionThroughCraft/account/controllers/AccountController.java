@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.evolutionThroughCraft.service.account.controllers;
+package io.github.evolutionThroughCraft.account.controllers;
 
-import io.github.evolutionThroughCraft.service.account.models.Account;
-import io.github.evolutionThroughCraft.service.account.repo.AccountRepository;
+import io.github.evolutionThroughCraft.account.models.Account;
+import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.common.utils.main.services.ResourceUtility;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

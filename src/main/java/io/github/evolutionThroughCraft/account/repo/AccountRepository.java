@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.evolutionThroughCraft.service.account.repo;
+package io.github.evolutionThroughCraft.account.repo;
 
-import io.github.evolutionThroughCraft.service.account.models.Account;
+import io.github.evolutionThroughCraft.account.models.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

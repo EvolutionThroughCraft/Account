@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package repo;
+package io.github.evolutionThroughCraft.common.utils.subRepo.main.general;
 
 /**
  *

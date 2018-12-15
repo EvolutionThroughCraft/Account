@@ -6,6 +6,7 @@
 package io.github.evolutionThroughCraft.account.controllers;
 
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
+import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import java.util.List;
@@ -42,8 +43,9 @@ public class AccountController {
     
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AccountEntity createAccount(@Valid @RequestBody AccountEntity account) {
-        ResourceUtility.ensureResource(account);
+    public AccountEntity createAccount(@Valid @RequestBody AccountForm form) {
+        ResourceUtility.ensureResource(form);
+        AccountEntity account = new AccountEntity(form);
         return accountRepo.save(account);
     }
     

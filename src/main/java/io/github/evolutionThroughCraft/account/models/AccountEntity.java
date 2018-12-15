@@ -7,7 +7,6 @@ package io.github.evolutionThroughCraft.account.models;
 
 import io.github.evolutionThroughCraft.common.service.main.api.Account;
 import io.github.evolutionThroughCraft.common.service.main.models.Stamps;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +15,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -25,6 +25,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "accounts")
 @Getter @Setter
+@NoArgsConstructor
 public class AccountEntity extends Stamps<String> implements Account {
     
     @Id @GeneratedValue(generator = "account_generator")
@@ -41,4 +42,15 @@ public class AccountEntity extends Stamps<String> implements Account {
     
     private String displayName;
 
+    
+    public AccountEntity(Account account) {
+        super();
+        setAccountId(account.getAccountId());
+        setUserName(account.getUserName());
+        setDisplayName(account.getDisplayName());
+        super.setCreateTime(account.getCreateTime());
+        super.setCreateUser(account.getCreateUser());
+        super.setUpdateTime(account.getUpdateTime());
+        super.setUpdateUser(account.getUpdateUser());
+    }
 }

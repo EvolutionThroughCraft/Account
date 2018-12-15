@@ -8,6 +8,7 @@ package io.github.evolutionThroughCraft.account.controllers;
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,8 +36,8 @@ public class AccountController {
     private AccountRepository accountRepo;
     
     @GetMapping
-    public Page<AccountEntity> findAll(Pageable pageable) {
-        return accountRepo.findAll(pageable);
+    public List<AccountEntity> findAll() {
+        return accountRepo.findAll();
     }
     
     @PostMapping

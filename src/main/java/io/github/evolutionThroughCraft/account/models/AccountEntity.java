@@ -6,7 +6,7 @@
 package io.github.evolutionThroughCraft.account.models;
 
 import io.github.evolutionThroughCraft.common.service.main.api.Account;
-import io.github.evolutionThroughCraft.service.common.models.Stamps;
+import io.github.evolutionThroughCraft.common.service.main.models.Stamps;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

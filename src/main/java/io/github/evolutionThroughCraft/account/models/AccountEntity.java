@@ -40,10 +40,5 @@ public class AccountEntity extends Stamps<String> implements Account {
     private String userName;
     
     private String displayName;
-    
-    @Column(name = "starting_balance", nullable = false, updatable = false)
-    private Integer startingBalance;
-    
-    @Column(name = "current_balance", nullable = false)
-    private Integer currentBalance;
+
 }

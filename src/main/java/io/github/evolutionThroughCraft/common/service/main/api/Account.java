@@ -16,8 +16,6 @@ public interface Account {
     public Long getAccountId();
     public String getUserName();
     public String getDisplayName();
-    public Integer getStartingBalance();
-    public Integer getCurrentBalance();
     public Date getCreateTime();
     public String getCreateUser();
     public Date getUpdateTime();

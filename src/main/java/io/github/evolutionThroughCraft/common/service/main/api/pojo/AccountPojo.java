@@ -16,8 +16,6 @@ public class AccountPojo implements Account {
     private Long accountId;
     private String userName;
     private String displayName;
-    private Integer startingBalance;
-    private Integer currentBalance;
     private Date createTime;
     private String createUser;
     private Date updateTime;
@@ -48,24 +46,6 @@ public class AccountPojo implements Account {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
-    }
-
-    @Override
-    public Integer getStartingBalance() {
-        return startingBalance;
-    }
-
-    public void setStartingBalance(Integer startingBalance) {
-        this.startingBalance = startingBalance;
-    }
-
-    @Override
-    public Integer getCurrentBalance() {
-        return currentBalance;
-    }
-
-    public void setCurrentBalance(Integer currentBalance) {
-        this.currentBalance = currentBalance;
     }
 
     @Override

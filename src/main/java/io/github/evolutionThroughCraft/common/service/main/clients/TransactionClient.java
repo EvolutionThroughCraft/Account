@@ -10,14 +10,12 @@ import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionP
 import io.github.evolutionThroughCraft.common.service.main.routes.TransactionRoutes;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 /**
  *
  * @author dwin
  */
-@Component
 public class TransactionClient implements TransactionRoutes {
     
     public Transaction postTransaction(Transaction transaction) {

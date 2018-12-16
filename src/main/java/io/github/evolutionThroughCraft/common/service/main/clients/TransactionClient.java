@@ -5,6 +5,8 @@
  */
 package io.github.evolutionThroughCraft.common.service.main.clients;
 
+import io.github.evolutionThroughCraft.common.service.main.api.Transaction;
+
 /**
  *
  * @author dwin

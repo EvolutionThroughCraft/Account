@@ -5,8 +5,8 @@
  */
 package io.github.evolutionThroughCraft.common.service.main.utils;
 
-import io.github.evolutionThroughCraft.service.common.models.BadRequestException;
-import io.github.evolutionThroughCraft.service.common.models.ResourceNotFoundException;
+import io.github.evolutionThroughCraft.common.service.main.models.BadRequestException;
+import io.github.evolutionThroughCraft.common.service.main.models.ResourceNotFoundException;
 
 /**
  *

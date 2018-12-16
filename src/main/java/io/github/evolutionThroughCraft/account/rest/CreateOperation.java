@@ -8,7 +8,7 @@ package io.github.evolutionThroughCraft.account.rest;
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
-import io.github.evolutionThroughCraft.account.rest.components.LocalTransactionClient;
+import io.github.evolutionThroughCraft.account.rest.components.AccountTransactionClient;
 import io.github.evolutionThroughCraft.account.rest.components.Parser;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
 import io.github.evolutionThroughCraft.common.service.main.clients.TransactionClient;
@@ -30,12 +30,9 @@ public class CreateOperation {
     
     @Autowired
     private Parser parser;
-    
-//    @Autowired
-//    private TransactionClient transactionClient;
 
     @Autowired
-    private LocalTransactionClient transactionClient;
+    private AccountTransactionClient transactionClient;
     
     public AccountEntity perform(AccountForm form) {
         contract.validate(form);

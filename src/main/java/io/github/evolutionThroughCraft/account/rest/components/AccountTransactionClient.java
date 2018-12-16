@@ -13,13 +13,6 @@ import org.springframework.stereotype.Component;
  * @author dwin
  */
 @Component
-public class LocalTransactionClient extends TransactionClient {
-    /*
-    So if you try to add @Component to the transactionClient and inject it,
-    it doesn't work.  (can't find the bean)
+public class AccountTransactionClient extends TransactionClient {
 
-    That said, it works when I extend the class here and add @Component.
-    ...this suggests that there is a "package-scan" thing going on,
-    but it isn't obvious to me where this line is
-    */
 }

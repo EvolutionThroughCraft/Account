@@ -9,7 +9,7 @@ package io.github.evolutionThroughCraft.common.service.main.routes;
  *
  * @author dwin
  */
-public interface TransactionPaths {
+public interface TransactionRoutes extends HttpsRoutes {
  
     public static final String TRANSACTION_ROOT = "/transactions";
     

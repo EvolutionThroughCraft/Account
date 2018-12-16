@@ -8,6 +8,7 @@ package io.github.evolutionThroughCraft.account.controllers;
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
+import io.github.evolutionThroughCraft.account.rest.CreateOperation;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import java.util.List;
 import javax.validation.Valid;
@@ -36,6 +37,9 @@ public class AccountController {
     @Autowired
     private AccountRepository accountRepo;
     
+    @Autowired
+    private CreateOperation createOperation;
+    
     @GetMapping
     public List<AccountEntity> findAll() {
         return accountRepo.findAll();
@@ -44,9 +48,11 @@ public class AccountController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AccountEntity createAccount(@Valid @RequestBody AccountForm form) {
-        ResourceUtility.ensureResource(form);
-        AccountEntity account = new AccountEntity(form);
-        return accountRepo.save(account);
+//        ResourceUtility.ensureResource(form);
+//        AccountEntity account = new AccountEntity(form);
+//        return accountRepo.save(account);
+        
+        return createOperation.perform(form);
     }
     
     @PutMapping("/{id}")

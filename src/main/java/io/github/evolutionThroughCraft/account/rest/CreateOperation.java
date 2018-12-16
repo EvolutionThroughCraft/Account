@@ -8,19 +8,37 @@ package io.github.evolutionThroughCraft.account.rest;
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
+import io.github.evolutionThroughCraft.account.rest.components.Parser;
+import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
+import io.github.evolutionThroughCraft.common.service.main.clients.TransactionClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author dwin
  */
+@Component
 public class CreateOperation {
+
     @Autowired
     private AccountRepository accountRepo;
 
-    public void perform(AccountForm form) {
-        CreateContract.validate(form);
-        AccountEntity account = new AccountEntity(form);
-        accountRepo.save(account);
+    @Autowired
+    private CreateContract contract;
+    
+    @Autowired
+    private Parser parser;
+    
+    @Autowired
+    private TransactionClient transactionClient;
+    
+    public AccountEntity perform(AccountForm form) {
+        contract.validate(form);
+        AccountEntity act = parser.getAccountEntity(form);
+        AccountEntity saved = accountRepo.save(act);
+        TransactionPojo transaction = parser.getTransaction(form, saved.getAccountId());
+        transactionClient.postTransaction(transaction);
+        return saved;
     }
 }

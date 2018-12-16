@@ -10,5 +10,5 @@ package io.github.evolutionThroughCraft.common.service.main.routes;
  * @author dwin
  */
 public interface HttpsRoutes {
-    public static final String HTTP_ROOT = "http://localhost:8080";
+    public static final String WEB_ROOT_ROUTE = "http://localhost";
 }

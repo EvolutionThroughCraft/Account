@@ -43,14 +43,4 @@ public class AccountEntity extends Stamps<String> implements Account {
     private String displayName;
 
     
-    public AccountEntity(Account account) {
-        super();
-        setAccountId(account.getAccountId());
-        setUserName(account.getUserName());
-        setDisplayName(account.getDisplayName());
-        super.setCreateTime(account.getCreateTime());
-        super.setCreateUser(account.getCreateUser());
-        super.setUpdateTime(account.getUpdateTime());
-        super.setUpdateUser(account.getUpdateUser());
-    }
 }

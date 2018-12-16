@@ -31,8 +31,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
         value = {"createTime", "updateTime"},
         allowGetters = true
 )
-@Getter
-@Setter(AccessLevel.PROTECTED)
+@Getter @Setter
 public abstract class Stamps<U> {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = StampsTableColumns.COL_CREATE_TIME, nullable = false, updatable = false)

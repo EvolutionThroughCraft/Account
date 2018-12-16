@@ -7,14 +7,16 @@ package io.github.evolutionThroughCraft.account.rest;
 
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author dwin
  */
+@Component
 public class CreateContract {
     
-    public static void validate(AccountForm form) {
+    public void validate(AccountForm form) {
         ResourceUtility.ensureResource(form);
         ResourceUtility.ensureResource(form.getUserName());
         ResourceUtility.ensureResource(form.getDisplayName());

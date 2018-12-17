@@ -37,4 +37,17 @@ public class Parser {
         pojo.setCreditorId(actId);
         return pojo;
     }
+    
+    public AccountForm getAccountForm(AccountEntity entity, Integer balance) {
+        AccountForm form = new AccountForm();
+        form.setAccountId(form.getAccountId());
+        form.setDisplayName(form.getDisplayName());
+        form.setUserName(form.getUserName());
+        form.setCreateUser(form.getCreateUser());
+        form.setUpdateUser(form.getUpdateUser());  
+        form.setUpdateTime(entity.getUpdateTime());
+        form.setCreateTime(entity.getCreateTime());
+        form.setBalance(balance);
+        return form;
+    }
 }

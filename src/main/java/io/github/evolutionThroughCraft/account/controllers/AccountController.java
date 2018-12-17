@@ -9,6 +9,8 @@ import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.account.rest.CreateOperation;
+import io.github.evolutionThroughCraft.account.rest.GetOperation;
+import io.github.evolutionThroughCraft.common.service.main.routes.AccountRoutes;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import java.util.List;
 import javax.validation.Valid;
@@ -31,8 +33,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author dwin
  */
 @RestController
-@RequestMapping("/accounts")
-public class AccountController {
+@RequestMapping
+public class AccountController implements AccountRoutes {
     
     @Autowired
     private AccountRepository accountRepo;
@@ -40,12 +42,20 @@ public class AccountController {
     @Autowired
     private CreateOperation createOperation;
     
-    @GetMapping
+    @Autowired
+    private GetOperation getOperation;
+    
+    @GetMapping(GET_ALL_ACCOUNT_PATH)
     public List<AccountEntity> findAll() {
         return accountRepo.findAll();
     }
     
-    @PostMapping
+    @GetMapping(GET_ACCOUNT_PATH)
+    public AccountForm getAccount(@PathVariable(ACCOUNT_ID_VAR) Long id) {
+        return getOperation.perform(id);
+    }
+    
+    @PostMapping(POST_ACCOUNT_PATH)
     @ResponseStatus(HttpStatus.CREATED)
     public AccountEntity createAccount(@Valid @RequestBody AccountForm form) {
 //        ResourceUtility.ensureResource(form);
@@ -55,10 +65,10 @@ public class AccountController {
         return createOperation.perform(form);
     }
     
-    @PutMapping("/{id}")
+    @PutMapping(PUT_ACCOUNT_PATH)
     @ResponseStatus(HttpStatus.OK)
     public AccountEntity updateAccount(
-                        @PathVariable("id") Long id, 
+                        @PathVariable(ACCOUNT_ID_VAR) Long id, 
                         @Valid @RequestBody AccountEntity account
     ) {
         ResourceUtility.ensureResource(account);
@@ -67,9 +77,9 @@ public class AccountController {
         return accountRepo.save(account);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping(DELETE_ACCOUNT_PATH)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteAccount(@PathVariable("id") Long id) {
+    public void deleteAccount(@PathVariable(ACCOUNT_ID_VAR) Long id) {
         accountRepo.deleteById(id);
     }
 }

@@ -26,12 +26,12 @@ public class TransactionClient implements TransactionRoutes {
                                     new HashMap<>()); // path args
     }
     
-    public Long getAccountBalance(Long accountId) {
+    public Integer getAccountBalance(Long accountId) {
         Map<String, Long> pathArgs = new HashMap<>();
         pathArgs.put(ACCOUNT_ID_VAR, accountId);
         return new RestTemplate().getForObject(
                                     GET_BALANCE_PATH, // request path
-                                    Long.class, // return class
+                                    Integer.class, // return class
                                     pathArgs); // path args
     }
 }

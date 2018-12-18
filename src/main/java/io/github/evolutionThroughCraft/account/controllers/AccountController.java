@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.apache.log4j.Logger;
 /**
  *
  * @author dwin
@@ -35,6 +35,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class AccountController implements AccountRoutes {
+    
+    private static final Logger scribe = Logger.getLogger(AccountController.class);
     
     @Autowired
     private AccountRepository accountRepo;
@@ -52,6 +54,7 @@ public class AccountController implements AccountRoutes {
     
     @GetMapping(GET_ACCOUNT_PATH)
     public AccountForm getAccount(@PathVariable(ACCOUNT_ID_VAR) Long id) {
+        scribe.debug("the id:" + id);
         return getOperation.perform(id);
     }
     
@@ -61,7 +64,7 @@ public class AccountController implements AccountRoutes {
 //        ResourceUtility.ensureResource(form);
 //        AccountEntity account = new AccountEntity(form);
 //        return accountRepo.save(account);
-        
+        scribe.debug("the form:" + form);
         return createOperation.perform(form);
     }
     

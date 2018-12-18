@@ -10,6 +10,7 @@ import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionP
 import io.github.evolutionThroughCraft.common.service.main.routes.TransactionRoutes;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.log4j.Logger;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -18,9 +19,12 @@ import org.springframework.web.client.RestTemplate;
  */
 public class TransactionClient implements TransactionRoutes {
     
+    private static final Logger scribe = Logger.getLogger(TransactionClient.class);
+    
     public Transaction postTransaction(Transaction transaction) {
+        scribe.debug("route:"+POST_TRANSACTIONS_ROUTE+", trans:"+transaction);
         return new RestTemplate().postForObject(
-                                    POST_TRANSACTIONS_PATH, // request path
+                                    POST_TRANSACTIONS_ROUTE, // request path
                                     transaction, // model to save
                                     TransactionPojo.class, // return class
                                     new HashMap<>()); // path args
@@ -29,8 +33,9 @@ public class TransactionClient implements TransactionRoutes {
     public Integer getAccountBalance(Long accountId) {
         Map<String, Long> pathArgs = new HashMap<>();
         pathArgs.put(ACCOUNT_ID_VAR, accountId);
+        scribe.debug("path:"+GET_TRANSACTIONS_ROUTE+", act:"+accountId);
         return new RestTemplate().getForObject(
-                                    GET_BALANCE_PATH, // request path
+                                    GET_TRANSACTIONS_ROUTE, // request path
                                     Integer.class, // return class
                                     pathArgs); // path args
     }

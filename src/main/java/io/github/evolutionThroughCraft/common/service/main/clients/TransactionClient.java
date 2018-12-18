@@ -5,7 +5,9 @@
  */
 package io.github.evolutionThroughCraft.common.service.main.clients;
 
+import io.github.evolutionThroughCraft.common.service.main.api.Balance;
 import io.github.evolutionThroughCraft.common.service.main.api.Transaction;
+import io.github.evolutionThroughCraft.common.service.main.api.pojo.BalancePojo;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
 import io.github.evolutionThroughCraft.common.service.main.routes.TransactionRoutes;
 import java.util.HashMap;
@@ -30,13 +32,13 @@ public class TransactionClient implements TransactionRoutes {
                                     new HashMap<>()); // path args
     }
     
-    public Integer getAccountBalance(Long accountId) {
+    public Balance getAccountBalance(Long accountId) {
         Map<String, Long> pathArgs = new HashMap<>();
         pathArgs.put(ACCOUNT_ID_VAR, accountId);
         scribe.debug("path:"+GET_TRANSACTIONS_ROUTE+", act:"+accountId);
         return new RestTemplate().getForObject(
                                     GET_TRANSACTIONS_ROUTE, // request path
-                                    Integer.class, // return class
+                                    BalancePojo.class, // return class
                                     pathArgs); // path args
     }
 }

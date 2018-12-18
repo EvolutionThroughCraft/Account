@@ -9,6 +9,7 @@ import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.account.rest.components.Parser;
+import io.github.evolutionThroughCraft.common.service.main.api.Balance;
 import io.github.evolutionThroughCraft.common.service.main.clients.TransactionClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,7 +32,7 @@ public class GetOperation {
     
     public AccountForm perform(Long accountId) {
         AccountEntity account = accountRepo.getOne(accountId);
-        Integer balance = transactionClient.getAccountBalance(accountId);
+        Balance balance = transactionClient.getAccountBalance(accountId);
         
         AccountForm form = parser.getAccountForm(account, balance);
         return form;

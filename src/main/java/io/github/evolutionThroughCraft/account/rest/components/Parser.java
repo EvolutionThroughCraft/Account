@@ -8,6 +8,7 @@ package io.github.evolutionThroughCraft.account.rest.components;
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.common.service.main.api.Account;
+import io.github.evolutionThroughCraft.common.service.main.api.Balance;
 import io.github.evolutionThroughCraft.common.service.main.api.Transaction;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
 import org.springframework.stereotype.Component;
@@ -38,7 +39,7 @@ public class Parser {
         return pojo;
     }
     
-    public AccountForm getAccountForm(AccountEntity entity, Integer balance) {
+    public AccountForm getAccountForm(AccountEntity entity, Balance balance) {
         AccountForm form = new AccountForm();
         form.setAccountId(form.getAccountId());
         form.setDisplayName(form.getDisplayName());
@@ -47,7 +48,7 @@ public class Parser {
         form.setUpdateUser(form.getUpdateUser());  
         form.setUpdateTime(entity.getUpdateTime());
         form.setCreateTime(entity.getCreateTime());
-        form.setBalance(balance);
+        form.setBalance(balance.getAmount());
         return form;
     }
 }

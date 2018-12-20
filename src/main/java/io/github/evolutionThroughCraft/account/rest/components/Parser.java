@@ -41,11 +41,11 @@ public class Parser {
     
     public AccountForm getAccountForm(AccountEntity entity, Balance balance) {
         AccountForm form = new AccountForm();
-        form.setAccountId(form.getAccountId());
-        form.setDisplayName(form.getDisplayName());
-        form.setUserName(form.getUserName());
-        form.setCreateUser(form.getCreateUser());
-        form.setUpdateUser(form.getUpdateUser());  
+        form.setAccountId(entity.getAccountId());
+        form.setDisplayName(entity.getDisplayName());
+        form.setUserName(entity.getUserName());
+        form.setCreateUser(entity.getCreateUser());
+        form.setUpdateUser(entity.getUpdateUser());  
         form.setUpdateTime(entity.getUpdateTime());
         form.setCreateTime(entity.getCreateTime());
         form.setBalance(balance.getAmount());

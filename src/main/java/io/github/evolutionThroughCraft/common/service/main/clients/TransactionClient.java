@@ -11,6 +11,7 @@ import io.github.evolutionThroughCraft.common.service.main.api.pojo.BalancePojo;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
 import io.github.evolutionThroughCraft.common.service.main.routes.TransactionRoutes;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.web.client.RestTemplate;
@@ -36,9 +37,17 @@ public class TransactionClient implements TransactionRoutes {
         Map<String, Long> pathArgs = new HashMap<>();
         pathArgs.put(ACCOUNT_ID_VAR, accountId);
         scribe.debug("path:"+GET_TRANSACTIONS_ROUTE+", act:"+accountId);
-        return new RestTemplate().getForObject(
-                                    GET_TRANSACTIONS_ROUTE, // request path
-                                    BalancePojo.class, // return class
-                                    pathArgs); // path args
+        BalancePojo[] maybe = new RestTemplate().getForObject(
+                                                    GET_TRANSACTIONS_ROUTE, // request path
+                                                    BalancePojo[].class, // return class
+                                                    pathArgs); // path args
+        
+        if(0 == maybe.length) {
+            return null;
+        } else {
+            return maybe[0];
+        }
+//        return maybe;
+        
     }
 }

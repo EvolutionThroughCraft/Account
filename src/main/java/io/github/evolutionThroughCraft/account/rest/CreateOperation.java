@@ -11,7 +11,6 @@ import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.account.rest.components.AccountTransactionClient;
 import io.github.evolutionThroughCraft.account.rest.components.Parser;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
-import io.github.evolutionThroughCraft.common.service.main.clients.TransactionClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,24 +21,57 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreateOperation {
 
-    @Autowired
     private AccountRepository accountRepo;
-
-    @Autowired
-    private CreateContract contract;
-    
-    @Autowired
+    private CreateContract contract;    
     private Parser parser;
-
-    @Autowired
     private AccountTransactionClient transactionClient;
     
     public AccountEntity perform(AccountForm form) {
-        contract.validate(form);
-        AccountEntity act = parser.getAccountEntity(form);
-        AccountEntity saved = accountRepo.save(act);
-        TransactionPojo transaction = parser.getTransaction(form, saved.getAccountId());
-        transactionClient.postTransaction(transaction);
+        getContract().validate(form);
+        AccountEntity act = getParser().getAccountEntity(form);
+        AccountEntity saved = getAccountRepo().save(act);
+        TransactionPojo transaction = getParser().getTransaction(form, saved.getAccountId());
+        getTransactionClient().postTransaction(transaction);
         return saved;
+    }
+
+    ///////////////////////////////
+    ////   getters + setters   ////
+    ///////////////////////////////
+    
+    public AccountRepository getAccountRepo() {
+        return accountRepo;
+    }
+
+    @Autowired
+    public void setAccountRepo(AccountRepository accountRepo) {
+        this.accountRepo = accountRepo;
+    }
+
+    public CreateContract getContract() {
+        return contract;
+    }
+
+    @Autowired    
+    public void setContract(CreateContract contract) {
+        this.contract = contract;
+    }
+
+    public Parser getParser() {
+        return parser;
+    }
+
+    @Autowired
+    public void setParser(Parser parser) {
+        this.parser = parser;
+    }
+
+    public AccountTransactionClient getTransactionClient() {
+        return transactionClient;
+    }
+
+    @Autowired
+    public void setTransactionClient(AccountTransactionClient transactionClient) {
+        this.transactionClient = transactionClient;
     }
 }

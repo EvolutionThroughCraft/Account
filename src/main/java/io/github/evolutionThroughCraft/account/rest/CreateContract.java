@@ -17,11 +17,11 @@ import org.springframework.stereotype.Component;
 public class CreateContract {
     
     public void validate(AccountForm form) {
-        ResourceUtility.ensureResource(form);
-        ResourceUtility.ensureResource(form.getUserName());
-        ResourceUtility.ensureResource(form.getDisplayName());
-        ResourceUtility.ensureResource(form.getCreateUser());
-        ResourceUtility.ensureResource(form.getUpdateUser());
-        ResourceUtility.ensureResource(form.getBalance());        
+        ResourceUtility.ensureResource(form, "AccountForm Missing");
+        ResourceUtility.ensureResource(form.getUserName(), "UserName Missing");
+        ResourceUtility.ensureResource(form.getDisplayName(), "DisplayName Missing");
+        ResourceUtility.ensureResource(form.getCreateUser(), "CreateUser Missing");
+        ResourceUtility.ensureResource(form.getUpdateUser(), "UpdateUser Missing");
+        ResourceUtility.ensureResource(form.getBalance(), "Starting Balance Missing");        
     }
 }

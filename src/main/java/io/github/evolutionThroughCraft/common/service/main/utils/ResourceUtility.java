@@ -14,6 +14,13 @@ import io.github.evolutionThroughCraft.common.service.main.models.ResourceNotFou
  */
 public class ResourceUtility {
     
+    public static <Resource> Resource ensureResource(Resource resource, String msg) {
+        if(null == resource) {
+            throw new ResourceNotFoundException(msg);
+        }
+        return resource;
+    }
+    
     public static <Resource> Resource ensureResource(Resource resource) {
         if(null == resource) {
             throw new ResourceNotFoundException();

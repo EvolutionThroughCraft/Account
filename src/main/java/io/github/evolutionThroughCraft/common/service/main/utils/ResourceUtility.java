@@ -33,4 +33,12 @@ public class ResourceUtility {
             throw new BadRequestException();
         }
     }
+    
+    public static <T> T optionalGet(T[] maybe){
+        if(maybe == null || 0 == maybe.length) {
+            return null;
+        } else {
+            return maybe[0];
+        }
+    }
 }

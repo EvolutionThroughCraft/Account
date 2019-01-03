@@ -24,13 +24,13 @@ public class AccountForm extends AccountPojo implements Account {
     
     public AccountForm(AccountEntity entity) {
         super();
-        super.setAccountId(entity.getAccountId());
-        super.setUserName(entity.getUserName());
-        super.setDisplayName(entity.getDisplayName());
-        super.setCreateTime(entity.getCreateTime());
-        super.setCreateUser(entity.getCreateUser());
-        super.setUpdateTime(entity.getUpdateTime());
-        super.setUpdateUser(entity.getUpdateUser());
+        setAccountId(entity.getAccountId());
+        setUserName(entity.getUserName());
+        setDisplayName(entity.getDisplayName());
+        setCreateTime(entity.getCreateTime());
+        setCreateUser(entity.getCreateUser());
+        setUpdateTime(entity.getUpdateTime());
+        setUpdateUser(entity.getUpdateUser());
     }
     
     

@@ -124,7 +124,7 @@ public class CreateOperationTest {
         ArgumentCaptor<AccountEntity> repoArg = ArgumentCaptor.forClass(AccountEntity.class);
         
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
         
         // assertions
         verify(mockRepo, times(1)).save(repoArg.capture());
@@ -149,7 +149,7 @@ public class CreateOperationTest {
         ArgumentCaptor<TransactionPojo> clientArg = ArgumentCaptor.forClass(TransactionPojo.class);
         
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
         
         // assertions
         verify(mockClient, times(1)).postTransaction(clientArg.capture());
@@ -172,7 +172,7 @@ public class CreateOperationTest {
         // setup        
 
         // tested act
-        AccountEntity rtnEntity = classUnderTest.perform(form);
+        AccountEntity rtnEntity = classUnderTest.run(form);
         
         // assertions
         //// set atrib
@@ -195,7 +195,7 @@ public class CreateOperationTest {
         exceptionState.expectMessage("AccountForm Missing");
        
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
     }
     
     @Test
@@ -208,7 +208,7 @@ public class CreateOperationTest {
         exceptionState.expectMessage("Starting Balance Missing");
        
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
     }
     
     @Test
@@ -221,7 +221,7 @@ public class CreateOperationTest {
         exceptionState.expectMessage("UserName Missing");
        
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
     }
     
     @Test
@@ -234,7 +234,7 @@ public class CreateOperationTest {
         exceptionState.expectMessage("DisplayName Missing");
        
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
     }
     
     @Test
@@ -247,7 +247,7 @@ public class CreateOperationTest {
         exceptionState.expectMessage("CreateUser Missing");
        
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
     }
     
     @Test
@@ -260,7 +260,7 @@ public class CreateOperationTest {
         exceptionState.expectMessage("UpdateUser Missing");
        
         // tested act
-        classUnderTest.perform(form);
+        classUnderTest.run(form);
     }
     
 }

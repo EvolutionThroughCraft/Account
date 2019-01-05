@@ -15,8 +15,6 @@ import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,7 +53,7 @@ public class AccountController implements AccountRoutes {
     @GetMapping(GET_ACCOUNT_PATH)
     public AccountForm getAccount(@PathVariable(ACCOUNT_ID_VAR) Long id) {
         scribe.debug("the id:" + id);
-        return getOperation.perform(id);
+        return getOperation.run(id);
     }
     
     @PostMapping(POST_ACCOUNT_PATH)
@@ -65,7 +63,7 @@ public class AccountController implements AccountRoutes {
 //        AccountEntity account = new AccountEntity(form);
 //        return accountRepo.save(account);
         scribe.debug("the form:" + form);
-        return createOperation.perform(form);
+        return createOperation.run(form);
     }
     
     @PutMapping(PUT_ACCOUNT_PATH)

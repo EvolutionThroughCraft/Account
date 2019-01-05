@@ -112,7 +112,7 @@ public class GetOperationTest {
         ArgumentCaptor<Long> repoArg = ArgumentCaptor.forClass(Long.class);
     
         // tested act
-        classUnderTest.perform(formAccountId);
+        classUnderTest.run(formAccountId);
         
         // assertions
         verify(mockRepo, times(1)).getOne(repoArg.capture());
@@ -126,7 +126,7 @@ public class GetOperationTest {
         ArgumentCaptor<Long> clientArg = ArgumentCaptor.forClass(Long.class);
     
         // tested act
-        classUnderTest.perform(formAccountId);
+        classUnderTest.run(formAccountId);
         
         // assertions
         verify(mockClient, times(1)).getAccountBalance(clientArg.capture());
@@ -139,7 +139,7 @@ public class GetOperationTest {
         // setup
         
         // tested act
-        AccountForm rtnForm = classUnderTest.perform(formAccountId);
+        AccountForm rtnForm = classUnderTest.run(formAccountId);
         
         // assertions
         //// set atrib

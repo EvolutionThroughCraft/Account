@@ -6,6 +6,7 @@
 package io.github.evolutionThroughCraft.account.rest;
 
 import io.github.evolutionThroughCraft.account.models.AccountForm;
+import io.github.evolutionThroughCraft.common.arch.contracts.Contract;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,9 @@ import org.springframework.stereotype.Component;
  * @author dwin
  */
 @Component
-public class CreateContract {
+public class CreateContract implements Contract<AccountForm> {
     
+    @Override
     public void validate(AccountForm form) {
         ResourceUtility.ensureResource(form, "AccountForm Missing");
         ResourceUtility.ensureResource(form.getUserName(), "UserName Missing");

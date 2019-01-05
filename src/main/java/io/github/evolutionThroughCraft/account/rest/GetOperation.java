@@ -10,7 +10,10 @@ import io.github.evolutionThroughCraft.account.models.AccountForm;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.account.rest.components.AccountTransactionClient;
 import io.github.evolutionThroughCraft.account.rest.components.Parser;
+import io.github.evolutionThroughCraft.common.arch.orchestrators.SimpleOperation;
 import io.github.evolutionThroughCraft.common.service.main.api.Balance;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +22,19 @@ import org.springframework.stereotype.Component;
  * @author dwin
  */
 @Component
-public class GetOperation {
-    
+@Getter @Setter
+public class GetOperation extends SimpleOperation<Long, AccountForm> {
+
+    @Autowired    
     private AccountTransactionClient transactionClient;
+
+    @Autowired
     private AccountRepository accountRepo;
+
+    @Autowired    
     private Parser parser;
-    
+
+    @Override
     public AccountForm perform(Long accountId) {
         AccountEntity account = getAccountRepo().getOne(accountId);
         Balance balance = getTransactionClient().getAccountBalance(accountId);
@@ -33,35 +43,4 @@ public class GetOperation {
         return form;
     }
     
-    ///////////////////////////////
-    ////   getters + setters   ////
-    ///////////////////////////////
-
-    public AccountTransactionClient getTransactionClient() {
-        return transactionClient;
-    }
-
-    @Autowired
-    public void setTransactionClient(AccountTransactionClient transactionClient) {
-        this.transactionClient = transactionClient;
-    }
-
-    public AccountRepository getAccountRepo() {
-        return accountRepo;
-    }
-
-    @Autowired
-    public void setAccountRepo(AccountRepository accountRepo) {
-        this.accountRepo = accountRepo;
-    }
-
-    public Parser getParser() {
-        return parser;
-    }
-
-    @Autowired    
-    public void setParser(Parser parser) {
-        this.parser = parser;
-    }
-
 }

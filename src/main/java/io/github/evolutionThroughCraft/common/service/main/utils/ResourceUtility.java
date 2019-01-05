@@ -30,7 +30,7 @@ public class ResourceUtility {
         return resource;
     }
     
-    public static <T> void ensureIdsEqual(T firstId, T secondId) {
+    public static <Id> void ensureIdsEqual(Id firstId, Id secondId) {
         if(null == firstId || null == secondId || !firstId.equals(secondId)) {
             throw new BadRequestException();
         }

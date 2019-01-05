@@ -9,6 +9,9 @@ import io.github.evolutionThroughCraft.common.service.main.api.Account;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.AccountPojo;
 import io.github.evolutionThroughCraft.common.service.main.models.BadRequestException;
 import io.github.evolutionThroughCraft.common.service.main.models.ResourceNotFoundException;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -42,5 +45,9 @@ public class ResourceUtility {
         } else {
             return maybe[0];
         }
+    }
+    
+    public static <T> List<T> asList(T[] result) {
+        return new LinkedList<T>(Arrays.asList(result));
     }
 }

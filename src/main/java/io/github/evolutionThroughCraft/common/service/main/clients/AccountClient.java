@@ -8,7 +8,6 @@ package io.github.evolutionThroughCraft.common.service.main.clients;
 import io.github.evolutionThroughCraft.common.service.main.api.Account;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.AccountPojo;
 import io.github.evolutionThroughCraft.common.service.main.routes.AccountRoutes;
-import static io.github.evolutionThroughCraft.common.service.main.routes.TransactionRoutes.ACCOUNT_ID_VAR;
 import io.github.evolutionThroughCraft.common.service.main.utils.ResourceUtility;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +29,8 @@ public class AccountClient implements AccountRoutes {
         scribe.debug("route:"+GET_ACCOUNT_ROUTE+", id:"+id);
         AccountPojo[] maybe = new RestTemplate().getForObject(
                                     GET_ACCOUNT_ROUTE,// req path
-                                    AccountPojo[].class,
-                                    pathArgs);
+                                    AccountPojo[].class, // return obj
+                                    pathArgs); // args
         
         return ResourceUtility.optionalGet(maybe);
     }

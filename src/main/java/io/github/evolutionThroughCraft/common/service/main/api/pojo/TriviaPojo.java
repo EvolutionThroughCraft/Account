@@ -5,11 +5,11 @@
  */
 package io.github.evolutionThroughCraft.common.service.main.api.pojo;
 
-import io.github.evolutionThroughCraft.common.service.main.api.Knowledge;
 import java.util.Date;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import io.github.evolutionThroughCraft.common.service.main.api.Trivia;
 
 /**
  *
@@ -17,13 +17,15 @@ import lombok.Setter;
  */
 @Getter @Setter
 @NoArgsConstructor
-public class KnowledgePojo implements Knowledge {
-    
-    private Long knowledgeId;
+public class TriviaPojo implements Trivia {
+
     private Long triviaId;
-    private Long accountId;
+    private String question;
+    private String answer;
     private Date createTime;
     private String createUser;
     private Date updateTime;
     private String updateUser;
+    
+
 }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  *
  * @author dwin
  */
-@Component
+@Component("accountCreate")
 public class CreateContract implements Contract<AccountForm> {
     
     @Override

@@ -7,9 +7,7 @@ package io.github.evolutionThroughCraft.account.rest.components;
 
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.models.AccountForm;
-import io.github.evolutionThroughCraft.common.service.main.api.Account;
 import io.github.evolutionThroughCraft.common.service.main.api.Balance;
-import io.github.evolutionThroughCraft.common.service.main.api.Transaction;
 import io.github.evolutionThroughCraft.common.service.main.api.pojo.TransactionPojo;
 import org.springframework.stereotype.Component;
 

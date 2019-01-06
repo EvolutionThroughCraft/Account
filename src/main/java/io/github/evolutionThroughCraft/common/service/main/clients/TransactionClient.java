@@ -43,4 +43,11 @@ public class TransactionClient implements TransactionRoutes {
                                                     pathArgs); // path args
         return ResourceUtility.optionalGet(maybe);        
     }
+    
+    public void deleteAccountTransactions(Long accountId) {
+        Map<String, Long> pathArgs = new HashMap<>();
+        pathArgs.put(ACCOUNT_ID_VAR, accountId);
+        scribe.debug("path:"+DELETE_TRANSACTIONS_ROUTE+", act:"+accountId);
+        new RestTemplate().delete(DELETE_TRANSACTIONS_ROUTE, pathArgs);
+    }
 }

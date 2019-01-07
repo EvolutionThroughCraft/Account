@@ -8,6 +8,7 @@ package io.github.evolutionThroughCraft.account.rest;
 import io.github.evolutionThroughCraft.account.models.AccountEntity;
 import io.github.evolutionThroughCraft.account.repo.AccountRepository;
 import io.github.evolutionThroughCraft.common.arch.orchestrators.SimpleOperation;
+import io.github.evolutionThroughCraft.common.service.main.aop.LogTimeTaken;
 import io.github.evolutionThroughCraft.common.service.main.models.ArgumentPlaceholder;
 import java.util.List;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class GetAllOperation extends SimpleOperation <ArgumentPlaceholder, List<
     private AccountRepository accountRepo;
     
     @Override
+    @LogTimeTaken
     public List<AccountEntity> perform(ArgumentPlaceholder _unused) {
         return getAccountRepo().findAll();
     }

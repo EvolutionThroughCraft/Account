@@ -4,9 +4,9 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = https://github.com/EvolutionThroughCraft/CommonServicePackage.git
+	remote = https://github.com/EvolutionThroughCraft/CommonArchitecture.git
 	branch = master
-	commit = 14908c572fb2301a56ec2503b20045a8217c70d4
-	parent = 943833e58a7bd0acae718bf7ba05c0563851de8d
+	commit = 7e312ee7d5c64c4f30268de7d62cc238617d3a5c
+	parent = d1bdc0a7a256e635cb94ae42019a204594192d12
 	method = merge
 	cmdver = 0.4.0

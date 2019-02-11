@@ -5,7 +5,7 @@ WORKDIR /opt/apps/Account
 RUN mvn -f pom.xml clean package
 
 FROM gcr.io/distroless/java  
-COPY target/account-1.0.0-SNAPSHOT.jar /opt/images/account-1.0.0-SNAPSHOT.jar  
+COPY target/account-0.0.1-SNAPSHOT.jar /opt/images/account-0.0.1-SNAPSHOT.jar  
 WORKDIR /opt/images
 EXPOSE 8080  
-CMD ["java","-jar","account-1.0.0-SNAPSHOT.jar"]  
+CMD ["java","-jar","account-0.0.1-SNAPSHOT.jar"]  

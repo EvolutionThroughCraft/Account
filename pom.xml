@@ -17,6 +17,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <start-class>io.github.evolutionThroughCraft.account.AccountApplication</start-class>
     </properties>
 
     <dependencies>

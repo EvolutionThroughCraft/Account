@@ -1,4 +1,7 @@
 FROM maven:3.5-jdk-8 AS build  
+COPY src /opt/apps/Account
+COPY src /opt/apps/Account
+WORKDIR /opt/apps/Account
 RUN mvn -f pom.xml clean package
 
 FROM gcr.io/distroless/java  

@@ -1,7 +1,7 @@
 FROM maven:3.5-jdk-8 AS build  
-COPY pom.xml /tmp/
-COPY src /tmp/src/
-WORKDIR /tmp/
+COPY pom.xml /tmp
+COPY src /tmp/src
+WORKDIR /tmp
 RUN mvn -f pom.xml package
 
 FROM gcr.io/distroless/java  

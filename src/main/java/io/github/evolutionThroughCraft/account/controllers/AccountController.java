@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.log4j.Logger;
+import org.springframework.web.bind.annotation.CrossOrigin;
 /**
  *
  * @author dwin
@@ -37,6 +38,7 @@ import org.apache.log4j.Logger;
 @RestController
 @RequestMapping
 @Getter
+@CrossOrigin
 public class AccountController implements AccountRoutes {
     
     private static final Logger scribe = Logger.getLogger(AccountController.class);
@@ -88,5 +90,11 @@ public class AccountController implements AccountRoutes {
     @ResponseStatus(HttpStatus.OK)
     public void deleteAccount(@PathVariable(ACCOUNT_ID_VAR) Long id) {
         getDeleteOperation().run(id);
+    }
+    
+    @GetMapping("/smoketest")
+    public String smokeTest(@PathVariable("msg") String msg) {
+        String said = "You have said:" + msg;
+        return said;
     }
 }

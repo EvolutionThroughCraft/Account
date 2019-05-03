@@ -93,8 +93,8 @@ public class AccountController implements AccountRoutes {
     }
     
     @GetMapping("/smoketest")
-    public String smokeTest(@PathVariable("msg") String msg) {
-        String said = "You have said:" + msg;
-        return said;
+    @ResponseStatus(HttpStatus.OK)
+    public String smokeTest() {
+        return "A-ok -- okily dokily!";
     }
 }
